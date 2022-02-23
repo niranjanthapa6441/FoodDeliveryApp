@@ -3,8 +3,10 @@ import 'dart:isolate';
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/custom_widgets/big_text.dart';
 import 'package:food_delivery_app/custom_widgets/small_text.dart';
-import 'package:food_delivery_app/home/food_page_body.dart';
+import 'package:food_delivery_app/dimesions.dart';
+import 'package:food_delivery_app/pages/home/food_page_body.dart';
 import 'package:food_delivery_app/utils/colors.dart';
+import 'package:get/get.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);
@@ -21,7 +23,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
         children: [
           Container(
             child: Container(
-              margin: const EdgeInsets.only(top: 60, bottom: 15),
+              margin: const EdgeInsets.only(top: 45, bottom: 15),
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,7 +33,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       BigText(
                         text: 'Nepal',
                         color: AppColors.mainColor,
-                        size: 25,
+                        size: Dimensions.fontSize20,
                       ),
                       Row(
                         children: [
@@ -39,7 +41,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                             text: 'Kathmandu',
                             color: AppColors.mainBlackColor,
                             height: 1.0,
-                            size: 15,
+                            size: Dimensions.fontSize15,
                           ),
                           Icon(
                             Icons.arrow_drop_down,
@@ -67,7 +69,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ),
             ),
           ),
-          FoodPageBody(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: FoodPageBody(),
+            ),
+          ),
         ],
       ),
     );
